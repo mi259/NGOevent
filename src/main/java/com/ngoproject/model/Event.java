@@ -77,14 +77,8 @@ public class Event implements Serializable{
 	    private Double childPrice;
 	    
 	   
-	    
-	    
-	    
-	    
-		
-	    @ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name="USERID",nullable = true)
-		@JsonIgnore
+	    @ManyToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name ="UID", referencedColumnName = "USERID")
 		private User user;
 
 }

@@ -44,6 +44,11 @@ public class AdminController {
 		}
 	}
 	
+	/*@PostMapping("/admin/user1")
+	public ResponseEntity<String> addUser1(@RequestBody User user) {
+		adminService.addUser(user);
+	}*/
+	
 	@PostMapping("/admin/user")
 	public void addUser(@RequestBody User user) {
 		adminService.addUser(user);
