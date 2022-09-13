@@ -24,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NgOeventApplicationUserServiceTests {
 
 	
+
 	@Mock
 	UserRepository userRepo;
 	
@@ -38,12 +39,12 @@ class NgOeventApplicationUserServiceTests {
 	RegistrationRepository regRepo;
 	
 	
-	@Test
+	/*@Test
 	public void testGetUserById() {
 		NGOUser user = userService.getUserById(2);
 		System.out.println("User = " + user);
 
-	}
+	}*/
 
 	
 	
@@ -65,6 +66,9 @@ class NgOeventApplicationUserServiceTests {
 			userService.listAllRegistraton();
 			
 		}
+
+
+
 
 
 

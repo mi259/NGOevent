@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ngoproject.model.Event;
 import com.ngoproject.model.NGOUser;
@@ -11,6 +12,7 @@ import com.ngoproject.model.Registration;
 import com.ngoproject.repository.EventRepository;
 import com.ngoproject.repository.RegistrationRepository;
 import com.ngoproject.repository.UserRepository;
+
 @Service
 public class UserService {
 
@@ -34,7 +36,7 @@ public NGOUser getUserById(int id) {
 	
 	public List<Event> listAllEvent() {
 		
-		return eventRepo.findAll();
+		return eventRepo.findAllevent("T");
 	}
 
 	public Event getEventById(int id) {
@@ -53,6 +55,20 @@ public NGOUser getUserById(int id) {
 
 		
 		return regRepo.findAll();
+	}
+
+
+
+	public NGOUser findAllByEmail(String email) {
+		// TODO Auto-generated method stub
+		return userRepo.findAllByEmail(email);
+	}
+
+
+
+	public Event findEventByname(String name) {
+		// TODO Auto-generated method stub
+		return eventRepo.findByName(name);
 	}
 
 

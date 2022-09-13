@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class NgOeventApplicationAdminServiceTests {
 
-	
+
 	@Mock
 	UserRepository userRepo;
 	
@@ -38,7 +38,7 @@ class NgOeventApplicationAdminServiceTests {
 		System.out.println("Users = " + users);
 	}
 	
-	@Test
+	/*@Test
 	public void testGetUserById() {
 		NGOUser user = adminService.getUserById(2);
 		System.out.println("User = " + user);
@@ -49,7 +49,7 @@ class NgOeventApplicationAdminServiceTests {
 	public void testDeleteUserById() {
 		adminService.deleteUserById(5);
 		
-	}
+	}*/
 	
 	 @Test
 		public void testGetEvent() {
@@ -57,7 +57,7 @@ class NgOeventApplicationAdminServiceTests {
 			System.out.println("Events = " + events);
 		}
 
-		@Test
+	 /*	@Test
 		public void testGetEventById() {
 			Event event = adminService.getEventById(1);
 			System.out.println("Events = " + event);
@@ -69,8 +69,7 @@ class NgOeventApplicationAdminServiceTests {
 			adminService.deleteEventById(2);
 			
 		}
-
-
+*/
 
 
 }

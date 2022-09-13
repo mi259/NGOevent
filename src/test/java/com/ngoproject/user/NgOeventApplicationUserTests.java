@@ -30,12 +30,12 @@ class NgOeventApplicationUserTests {
 	RegistrationRepository regRepo;
 	
 	
-	@Test
+	/*@Test
 	public void getUserById() {
 		NGOUser user = userRepo.findById(2).get();
 		System.out.println("User = " + user);
 
-	}
+	}*/
 
 	 @Test
 		public void getEvent() {
@@ -43,12 +43,12 @@ class NgOeventApplicationUserTests {
 			System.out.println("Events = " + events);
 		}
 
-		@Test
+	/*	@Test
 		public void getEventById() {
 			Event event = eventRepo.findById(2).get();
 			System.out.println("Events = " + event);
 
-		}
+		}*/
 	@Test
 	public void addUseraddRegistration() {
 		

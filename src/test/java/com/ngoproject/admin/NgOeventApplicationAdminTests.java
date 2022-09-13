@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ngoproject.model.Event;
 import com.ngoproject.model.NGOUser;
@@ -24,13 +25,14 @@ class NgOeventApplicationAdminTests {
 	@Autowired
 	EventRepository eventRepo;
 
+	
 	@Test
 	public void getUser() {
 		List<NGOUser> users = userRepo.findAll();
 		System.out.println("Users = " + users);
 	}
 
-	@Test
+	/*	@Test
 	public void getUserById() {
 		NGOUser user = userRepo.findById(2).get();
 		System.out.println("User = " + user);
@@ -47,10 +49,16 @@ class NgOeventApplicationAdminTests {
 		user.setFirstname("John");
 		user.setLastName("Doe");
 		user.setEmail("jd@gmail.com");
-		user.setPassword("123");
+		
+		
+		
+		user.setPassword("$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu");//123
 		user.setRole("User");
 		//DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
 		//DateFormat formatterTime = new SimpleDateFormat("HH:mm");
+		
+		
+		
 		
 		Event event = new Event();
 
@@ -58,13 +66,11 @@ class NgOeventApplicationAdminTests {
 		event.setAllowRegistration("T");
 		event.setChildPrice(10.00);
 		event.setDescription("hjj");
-		//event.setEndDate(formatter.parse("2022-09-09"));
+		
 		event.setImage("1.jpeg");
 		event.setLocation("nj");
 		event.setName("fffg");
-		//event.setStartDate(formatter.parse("2022-09-09"));
-		//event.setStartTime(formatterTime.parse("08:00"));
-	//	event.setEndTime(formatterTime.parse("09:00"));
+		event.setDescription("fggfhgjhjhjkjkjkgghgtuytytguygh");
 		
 		event.setStartDate("2022-09-09");
 		event.setEndDate("2022-09-09");
@@ -75,9 +81,9 @@ class NgOeventApplicationAdminTests {
 
 		userRepo.save(user);
 	}
+*/
 
-
-	@Test
+	/*@Test
 	public void deleteUserById() {
 		 userRepo.deleteById(3);
 		
@@ -89,13 +95,15 @@ class NgOeventApplicationAdminTests {
 		 	user.setFirstname("Mitali");
 			user.setLastName("Italiya");
 			user.setEmail("jd@gmail.com");
-			user.setPassword("123");
-			user.setRole("admin");
+		
+			
+			user.setPassword("$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu");//123
+			user.setRole("User");
 			
 		 userRepo.save(user);
 
 			
-	    }
+	    }*/
 	 
 	 
 	 @Test
@@ -104,44 +112,46 @@ class NgOeventApplicationAdminTests {
 			System.out.println("Events = " + events);
 		}
 
-		@Test
+	/*	@Test
 		public void getEventById() {
-			Event event = eventRepo.findById(2).get();
+			Event event = eventRepo.findById(6).get();
 			System.out.println("Events = " + event);
 
-		}
+		}*/
 		
 		@Test
 		public void addEvent() throws ParseException {
 
 			//DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
 			//DateFormat formatterTime = new SimpleDateFormat("HH:mm");
-			
 			Event event = new Event();
 
 			event.setAdultPrice(20.00);
 			event.setAllowRegistration("T");
 			event.setChildPrice(10.00);
 			event.setDescription("hjj");
-			//event.setEndDate(formatter.parse("2022-09-09"));
+			
 			event.setImage("1.jpeg");
 			event.setLocation("nj");
 			event.setName("fffg");
-			//event.setStartDate(formatter.parse("2022-09-09"));
-			//event.setStartTime(formatterTime.parse("08:00"));
-		//	event.setEndTime(formatterTime.parse("09:00"));
+			event.setDescription("fggfhgjhjhjkjkjkgghgtuytytguygh");
 			
 			event.setStartDate("2022-09-09");
 			event.setEndDate("2022-09-09");
 			event.setStartTime("08:00");
 			event.setEndTime("09:00");
+			//event.setStartDate(formatter.parse("2022-09-09"));
+			//event.setStartTime(formatterTime.parse("08:00"));
+		//	event.setEndTime(formatterTime.parse("09:00"));
+			
+			
 
 		//	user.addRegisteredEvent(event);
 
 			eventRepo.save(event);
 		}
 		
-		@Test
+	/*	@Test
 		public void deleteEventById() {
 			eventRepo.deleteById(3);
 			
@@ -149,18 +159,16 @@ class NgOeventApplicationAdminTests {
 		
 		 @Test
 		    public void updateEventById(){
-			 Event event = eventRepo.findById(2).get();
+			 Event event = eventRepo.findById(6).get();
 			 event.setAdultPrice(20.00);
 				event.setAllowRegistration("T");
 				event.setChildPrice(10.00);
 				event.setDescription("hjj");
-				//event.setEndDate(formatter.parse("2022-09-09"));
+				
 				event.setImage("1.jpeg");
 				event.setLocation("nj");
-				event.setName("fffg");
-				//event.setStartDate(formatter.parse("2022-09-09"));
-				//event.setStartTime(formatterTime.parse("08:00"));
-			//	event.setEndTime(formatterTime.parse("09:00"));
+				event.setName("IT");
+				event.setDescription("fggfhgjhjhjkjkjkgghgtuytytguygh");
 				
 				event.setStartDate("2022-09-09");
 				event.setEndDate("2022-09-09");
@@ -170,7 +178,7 @@ class NgOeventApplicationAdminTests {
 
 				
 		    }
-		 
+		 */
 }
 
 
