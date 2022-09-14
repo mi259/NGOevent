@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.ngoproject.exception.ResourceNotFoundException;
 
 import com.ngoproject.model.Event;
@@ -35,12 +34,9 @@ import com.ngoproject.services.UserService;
 @RestController
 public class UserController {
 
-	
-	
-	
 	@Autowired
 	UserService userService;
-	
+
 	@GetMapping("/user/{id}")
 	public ResponseEntity<NGOUser> getUserById(@PathVariable int id) {
 		try {
@@ -50,16 +46,13 @@ public class UserController {
 			return new ResponseEntity<NGOUser>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
-		
+
 	@GetMapping("/user/event/")
 	public List<Event> getEvent() {
 
 		return userService.listAllEvent();
 	}
-	
 
-	
 	@GetMapping("/user/event/{id}")
 	public ResponseEntity<Event> getEventById(@PathVariable int id) {
 		try {
@@ -69,41 +62,35 @@ public class UserController {
 			return new ResponseEntity<Event>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@GetMapping("/user/event/registration")
 	public List<Registration> getRegistration() {
 
 		return userService.listAllRegistraton();
 	}
-	
-	
-	/*@PostMapping("/user/event/registration")
-	public void addRegistration(@Valid @RequestBody Registration reg) {
-		userService.addRegistration(reg);
-	}*/
-	
+
 	@RequestMapping(value = "/user/event/registration", method = RequestMethod.POST)
 	public void creatUserAccount(@RequestBody Registration reg) {
-		
+
 		NGOUser user = userService.findAllByEmail(reg.getEmail());
 		Event event = userService.findEventByname(reg.getEvnetName());
 		Integer uid = user.getUserId();
 		Integer eid = event.getEventId();
-		
+
 		Double adultprice = event.getAdultPrice();
 		Double childprice = event.getChildPrice();
-		
-		Double totaladultprice =( (reg.getTotalAdult()) * adultprice);
-		Double totalchildprice =( (reg.getTotalChild()) * childprice);
-		
+
+		Double totaladultprice = ((reg.getTotalAdult()) * adultprice);
+		Double totalchildprice = ((reg.getTotalChild()) * childprice);
+
 		Double total = totaladultprice + totalchildprice;
 		reg.setUserid(uid);
 		reg.setEventid(eid);
-		
+
 		reg.setTotalPrice(total);
 		userService.addRegistration(reg);
 	}
-	
+
 	@GetMapping("/user/event/name/{name}")
 	public ResponseEntity<Event> findEventByname(@PathVariable String name) {
 		try {

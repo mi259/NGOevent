@@ -1,15 +1,11 @@
 package com.ngoproject.admin;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ngoproject.model.Event;
 import com.ngoproject.model.NGOUser;
@@ -21,20 +17,19 @@ class NgOeventApplicationAdminTests {
 
 	@Autowired
 	UserRepository userRepo;
-	
+
 	@Autowired
 	EventRepository eventRepo;
 
-	
 	@Test
-	public void getUser() {
+	public void GetUser() {
 		List<NGOUser> users = userRepo.findAll();
 		System.out.println("Users = " + users);
 	}
 
-	/*	@Test
+	@Test
 	public void getUserById() {
-		NGOUser user = userRepo.findById(2).get();
+		NGOUser user = userRepo.findById(1).get();
 		System.out.println("User = " + user);
 
 	}
@@ -42,143 +37,120 @@ class NgOeventApplicationAdminTests {
 	@Test
 	public void addUser() throws ParseException {
 
-		//DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-		//DateFormat formatterTime = new SimpleDateFormat("HH:mm");
 		NGOUser user = new NGOUser();
 
-		user.setFirstname("John");
-		user.setLastName("Doe");
-		user.setEmail("jd@gmail.com");
-		
-		
-		
-		user.setPassword("$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu");//123
+		user.setFirstname("matilda");
+		user.setLastName("bill");
+		user.setEmail("m@gmail.com");
+		user.setPassword("$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu");// 123
 		user.setRole("User");
-		//DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-		//DateFormat formatterTime = new SimpleDateFormat("HH:mm");
-		
-		
-		
-		
+
 		Event event = new Event();
 
 		event.setAdultPrice(20.00);
-		event.setAllowRegistration("T");
+		event.setAllowRegistration("t");
 		event.setChildPrice(10.00);
-		event.setDescription("hjj");
-		
-		event.setImage("1.jpeg");
+		event.setDescription("Sql teaching session");
 		event.setLocation("nj");
-		event.setName("fffg");
-		event.setDescription("fggfhgjhjhjkjkjkgghgtuytytguygh");
-		
-		event.setStartDate("2022-09-09");
-		event.setEndDate("2022-09-09");
-		event.setStartTime("08:00");
-		event.setEndTime("09:00");
-		
+		event.setName("sql event");
+		event.setCategory("presentation");
+		event.setStartDate("2022-10-09");
+		event.setEndDate("2022-10-09");
+		event.setStartTime("11:00");
+		event.setEndTime("12:00");
+
 		user.addRegisteredEvent(event);
 
 		userRepo.save(user);
 	}
-*/
 
-	/*@Test
-	public void deleteUserById() {
-		 userRepo.deleteById(3);
-		
+	@Test
+	public void updateUserById() {
+		NGOUser user = userRepo.findById(2).get();
+		user.setFirstname("Mitali");
+		user.setLastName("Italiya");
+		user.setEmail("m@gmail.com");
+
+		user.setPassword("$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu");// 123
+		user.setRole("User");
+
+		userRepo.updateUserById("Mitali", "Italiya", "mitali@gmail.com", "User",
+				"$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu", 2);
+
 	}
 	
-	 @Test
-	    public void updateUserById(){
-		 NGOUser user = userRepo.findById(2).get();
-		 	user.setFirstname("Mitali");
-			user.setLastName("Italiya");
-			user.setEmail("jd@gmail.com");
-		
-			
-			user.setPassword("$2a$12$t73OVZSewDhn1CVKTf2pDO1iDM.IOAenM8SfUQxc6Z9oCAEyrNmVu");//123
-			user.setRole("User");
-			
-		 userRepo.save(user);
+//	@Test
+//	public void deleteUserById() {
+//		 userRepo.deleteById(3);
+//		
+//	}
 
-			
-	    }*/
-	 
-	 
-	 @Test
-		public void getEvent() {
-			List<Event> events = eventRepo.findAll();
-			System.out.println("Events = " + events);
-		}
+	@Test
+	public void getEvent() {
+		List<Event> events = eventRepo.findAll();
+		System.out.println("Events = " + events);
+	}
 
-	/*	@Test
-		public void getEventById() {
-			Event event = eventRepo.findById(6).get();
-			System.out.println("Events = " + event);
+	@Test
+	public void getEventById() {
+		Event event = eventRepo.findById(1).get();
+		System.out.println("Events = " + event);
 
-		}*/
-		
-		@Test
-		public void addEvent() throws ParseException {
+	}
 
-			//DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
-			//DateFormat formatterTime = new SimpleDateFormat("HH:mm");
-			Event event = new Event();
+	@Test
+	public void addEvent() throws ParseException {
 
-			event.setAdultPrice(20.00);
-			event.setAllowRegistration("T");
-			event.setChildPrice(10.00);
-			event.setDescription("hjj");
-			
-			event.setImage("1.jpeg");
-			event.setLocation("nj");
-			event.setName("fffg");
-			event.setDescription("fggfhgjhjhjkjkjkgghgtuytytguygh");
-			
-			event.setStartDate("2022-09-09");
-			event.setEndDate("2022-09-09");
-			event.setStartTime("08:00");
-			event.setEndTime("09:00");
-			//event.setStartDate(formatter.parse("2022-09-09"));
-			//event.setStartTime(formatterTime.parse("08:00"));
-		//	event.setEndTime(formatterTime.parse("09:00"));
-			
-			
+		NGOUser u = new NGOUser();
 
-		//	user.addRegisteredEvent(event);
+		u.setFirstname("Sena");
+		u.setLastName("miller");
+		u.setEmail("s@gmail.com");
+		u.setPassword("$2a$12$S7KJfY/kbASbam5RDbgDzuMTY.mhgtO.zKtvrNgTarLoUORCRZvaC");// sena
+		u.setRole("User");
 
-			eventRepo.save(event);
-		}
-		
-	/*	@Test
-		public void deleteEventById() {
-			eventRepo.deleteById(3);
-			
-		}
-		
-		 @Test
-		    public void updateEventById(){
-			 Event event = eventRepo.findById(6).get();
-			 event.setAdultPrice(20.00);
-				event.setAllowRegistration("T");
-				event.setChildPrice(10.00);
-				event.setDescription("hjj");
-				
-				event.setImage("1.jpeg");
-				event.setLocation("nj");
-				event.setName("IT");
-				event.setDescription("fggfhgjhjhjkjkjkgghgtuytytguygh");
-				
-				event.setStartDate("2022-09-09");
-				event.setEndDate("2022-09-09");
-				event.setStartTime("08:00");
-				event.setEndTime("09:00");
-				eventRepo.save(event);
+		Event e = new Event();
 
-				
-		    }
-		 */
+		e.setAdultPrice(30.00);
+		e.setAllowRegistration("f");
+		e.setChildPrice(25.00);
+		e.setDescription("live amazing music");
+		e.setLocation("ny");
+		e.setName("music consert event");
+		e.setCategory("conference");
+		e.setStartDate("2022-09-25");
+		e.setEndDate("2022-09-25");
+		e.setStartTime("20:00");
+		e.setEndTime("23:00");
+
+		u.addRegisteredEvent(e);
+
+		userRepo.save(u);
+
+		eventRepo.save(e);
+	}
+
+	@Test
+	public void updateEventById() {
+		Event event = eventRepo.findById(1).get();
+		event.setAdultPrice(50.00);
+		event.setAllowRegistration("f");
+		event.setChildPrice(40.00);
+		event.setDescription("live amazing music");
+		event.setLocation("ny");
+		event.setName("music consert event");
+		event.setCategory("conference");
+		event.setStartDate("2022-09-25");
+		event.setEndDate("2022-09-25");
+		event.setStartTime("20:00");
+		event.setEndTime("23:00");
+		eventRepo.save(event);
+
+	}
+
+//	  @Test public void deleteEventById() { 
+//	  eventRepo.deleteById(3);
+//
+//}
+
 }
-
-

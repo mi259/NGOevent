@@ -1,6 +1,5 @@
 package com.ngoproject.user;
 
-
 import com.ngoproject.model.Event;
 import com.ngoproject.model.NGOUser;
 import com.ngoproject.repository.EventRepository;
@@ -23,54 +22,43 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class NgOeventApplicationUserServiceTests {
 
-	
-
 	@Mock
 	UserRepository userRepo;
-	
+
 	@InjectMocks
-    @Autowired
+	@Autowired
 	private UserService userService;
-	
+
 	@Mock
 	EventRepository eventRepo;
-	
+
 	@Mock
 	RegistrationRepository regRepo;
-	
-	
-	/*@Test
+
+	@Test
 	public void testGetUserById() {
-		NGOUser user = userService.getUserById(2);
+		NGOUser user = userService.getUserById(1);
 		System.out.println("User = " + user);
 
-	}*/
+	}
 
-	
-	
-	 @Test
-		public void testGetEvent() {
-			List<Event> events = userService.listAllEvent();
-			System.out.println("Events = " + events);
-		}
+	@Test
+	public void testGetEvent() {
+		List<Event> events = userService.listAllEvent();
+		System.out.println("Events = " + events);
+	}
 
-		@Test
-		public void testGetEventById() {
-			Event event = userService.getEventById(1);
-			System.out.println("Events = " + event);
+	@Test
+	public void testGetEventById() {
+		Event event = userService.getEventById(1);
+		System.out.println("Events = " + event);
 
-		}
-		
-		@Test
-		public void testListAllRegistraton() {
-			userService.listAllRegistraton();
-			
-		}
+	}
 
+	@Test
+	public void testListAllRegistraton() {
+		userService.listAllRegistraton();
 
-
-
-
-
+	}
 
 }

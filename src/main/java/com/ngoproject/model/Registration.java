@@ -31,7 +31,7 @@ import java.util.List;
 
 import com.ngoproject.model.NGOUser;
 
-@Data
+
 @Entity
 @Table(name = "REGISTRATION")
 @Getter

@@ -3,9 +3,9 @@ package com.ngoproject.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ngoproject.model.Registration;
+import com.ngoproject.model.Image;
 
 @Repository
-public interface RegistrationRepository extends JpaRepository<Registration, Integer> {
+public interface ImageRepository extends JpaRepository<Image, Integer> {
 
 }
